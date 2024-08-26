@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="suggess.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=New+Amsterdam&display=swap');
+
+body {
+    background: url(img2.jpg);
+}
+
+
+.ag-format-container {
+    width: 1142px;
+    margin: 0 auto;
+  }
+  
+
+
+  p {
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    font-size: 60px;
+    padding: 20px;  
+    color: white;
+    margin: 20px auto;
+    font-weight: 200;
+    line-height: 25px;
+  }
+
+  h3 {
+    font-family: 'Bungee Tint',sans-serif;
+    padding: 0 400px;
+    font-size: 30px; 
+    color: #FFF;
+    margin: 20px auto;
+    font-weight: 200;
+    line-height: 25px;
+
+  }
+
+  
+  body {
+    background-color: #000;
+  }
+  .ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  
+    padding: 50px 0;
+  }
+
+.cont {
+  display: inline-block;
+  padding: 0 380px;
+
+}
+
+.titlee {
+  text-align: center;
+  overflow: hidden;
+  font-size: 3.6rem;
+  font-weight: 700;
+  border-right: 0.15rem solid orangered;
+  white-space: nowrap;
+  animation: typing 1.5s steps(40,end) 1;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(33.33333% - 30px);
+    flex-basis: calc(33.33333% - 30px);
+  
+    margin: 0 15px 30px;
+  
+    overflow: hidden;
+  
+    border-radius: 28px;
+  }
+  .ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: #121212;
+  
+    overflow: hidden;
+  
+    position: relative;
+  }
+  .ag-courses-item_link:hover,
+  .ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .ag-courses-item_link:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+  .ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+  
+    overflow: hidden;
+  
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+  
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date-box {
+    font-size: 18px;
+    color: #FFF;
+  
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date {
+    font-weight: bold;
+    color: #f9b234;
+  
+    -webkit-transition: color .5s ease;
+    -o-transition: color .5s ease;
+    transition: color .5s ease
+  }
+  .ag-courses-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: rgba(182, 2, 2, 0.578);
+  
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+  
+    border-radius: 50%;
+  
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+  }
+
+  
+  
+  
+  @media only screen and (max-width: 979px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: calc(50% - 30px);
+      flex-basis: calc(50% - 30px);
+    }
+    .ag-courses-item_title {
+      font-size: 24px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .ag-format-container {
+      width: 96%;
+    }
+  
+  }
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+    }
+    .ag-courses-item_title {
+      min-height: 72px;
+      line-height: 1;
+  
+      font-size: 24px;
+    }
+    .ag-courses-item_link {
+      padding: 22px 40px;
+    }
+    .ag-courses-item_date-box {
+      font-size: 16px;
+    }
+  }
+    </style>
+</head>
+
+<body>
+    <div class="genre">
+        <h3 class="titlee2">@Hey Gamer!</h3>
+        <div class="cont">
+          <p class="titlee">>>Select your Fav Genre ;)</p>
+        </div>
+    </div>
+
+
+
+    <div class="ag-format-container">
+        <div class="ag-courses_box">
+          <div class="ag-courses_item">
+            <a href="Action.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Action
+              </div>
+      
+              <div class="ag-courses-item_date-box">
+                
+                
+              </div>
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="Adventure.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Adventure
+              </div>
+      
+              <div class="ag-courses-item_date-box">
+              
+                
+              </div>
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="RPG.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                RPG
+              </div>
+      
+              
+            </a>
+          </div>
+
+          <div class="ag-courses_item">
+            <a href="puzzle.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Puzzle
+              </div>
+      
+              
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="userprofile.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Simulation
+              </div>
+      
+              
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="shooter.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Shooter
+              </div>
+      
+              
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="userprofile.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Strategy
+              </div>
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="Racing.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg">
+              </div>
+              <div class="ag-courses-item_title">
+                Racing
+              </div>
+            </a>
+          </div>
+      
+          <div class="ag-courses_item">
+            <a href="userprofile.html" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+      
+              <div class="ag-courses-item_title">
+                Casual
+              </div>
+      
+              <div class="ag-courses-item_date-box">
+                
+                
+              </div>
+              
+            </a>
+          </div>
+      
+        </div>
+      </div>
+    
+
+    
+</body>
+</html>

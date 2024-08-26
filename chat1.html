@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAT</title>
+    <link rel="stylesheet" href="chat1.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* padding-left: 600px; */
+    box-sizing: border-box;
+    background-color: #000;
+    --msger-bg: #fff;
+    --border: 2px solid #fff;
+    --left-msg-bg: #fff;
+    --right-msg-bg: #fff;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg , #0a0a0a,#3a4452);
+    font-family: Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0;
+  }
+  
+  .msger {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    top: 105px;
+    /* max-width: 600px; */
+    margin-left: 5px;
+    height: 100%;
+    /* border-left: 5px solid #2d2a2a8c; */
+    border-radius: 5px;
+    background: var(--msger-bg);
+    box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  .chat {
+    width: 50%;
+    height: 100%;
+    margin: 40px auto;
+    background: linear-gradient(90deg , #0a0a0a,#3a4452);
+    position: relative;
+    top: 105px;
+  }
+  
+  .messages{
+    padding: 10px;
+    padding-top:10px ;
+  }
+  .msger-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: var(--border);
+    background: linear-gradient(90deg , #0a0a0a,#3a4452);
+    color: #666;
+    border-radius: 5px;
+  }
+  
+  .msger-header-title{
+    font-size: 25px;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    bottom: 10px;
+  }
+  .msger-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color:#eee ;
+  }
+  .msger-chat::-webkit-scrollbar {
+    width: 6px;
+  }
+  .msger-chat::-webkit-scrollbar-track {
+    background: #ddd;
+  }
+  .msger-chat::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+  }
+  .msg {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+  }
+
+  .msg23{
+    border: 1px solid rgba(255, 255, 255, 0.856);
+  }
+  .msg:last-of-type {
+    margin: 0;
+  }
+  .msg-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background: #ddd;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+  }
+  .msg-bubble {
+    max-width: 450px;
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--left-msg-bg);
+  }
+  .msg-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .msg-info-name {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  .msg-info-time {
+    font-size: 0.85em;
+  }
+  
+  .left-msg .msg-bubble {
+    border-bottom-left-radius: 0;
+  }
+  
+  .right-msg {
+    flex-direction: row-reverse;
+  }
+  .right-msg .msg-bubble {
+    background: var(--right-msg-bg);
+    /* color: #fff; */
+    border-bottom-right-radius: 0;
+  }
+  .right-msg .msg-img {
+    margin: 0 0 0 10px;
+  }
+  
+  .msger-inputarea {
+    display: flex;
+    padding: 10px;
+    border-top: var(--border);
+    background: #eee;
+  }
+  .msger-inputarea * {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+  }
+  .msger-input {
+    flex: 1;
+    background: #ddd;
+  }
+  .submit {
+    margin-left: 20px;
+    background-color: #666;
+    color: #fff;
+    transition: 0.23s;
+    border-radius: 50%;
+  }
+  
+  .msger-send-btn:hover {
+    background: rgb(0, 180, 50);
+  }
+  
+  .dms {
+    height: 100vh;
+    padding: 20px;
+    color: #ddd;
+    background-color: #333;
+    border-radius: 5px;
+    border: 1px solid #444;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dms-dms {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,900);
+  
+  header {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(90deg , #0a0a0a,#3a4452);
+    line-height: 50px;
+  }
+  header .fa-user-plus {
+    color: #9692a4;
+    margin-left: 15px;
+    font-size: 23px;
+  }
+  
+  .headline {
+    margin-left: 90px;
+    color: white;
+
+  }
+
+  .text{
+    color: #fff;
+  }
+
+  .time{
+    color:#fff;
+    font-size: 10px;
+  }
+  
+  .profile {
+    display: inline;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    float: right;
+    margin-right: 11px;
+    border-radius: 50%;
+  }
+  
+  .online {
+    background: #27c7b2;
+    /* float: right; */
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    z-index: 500;
+    margin-top: 7px;
+    border-radius: 50%;
+  }
+  
+  .new-msg {
+    width: 100%;
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+    background: #73a0fd;
+    color: #fff;
+    text-align: center;
+  }
+  .msg-line {
+    font-weight: 300;
+    margin-left: 8px;
+  }
+  
+  .msg .one {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.2)),
+      url(http://images6.fanpop.com/image/photos/36800000/Banner-and-Icon-oberyn-martell-36867927-75-75.png);
+    background-size: cover;
+  }
+  
+  .msg .two {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.2)),
+      url(http://images5.fanpop.com/image/photos/30700000/2x06-game-of-thrones-30758526-100-100.gif);
+    background-size: cover;
+  }
+  
+  .msg .three {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.2)),
+      url(http://asoiaf.westeros.org/uploads/profile/photo-thumb-89935.jpg);
+    background-size: cover;
+  }
+  
+  .msg .four {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.2)),
+      url(http://images6.fanpop.com/image/photos/36200000/Cersei-Lannister-image-cersei-lannister-36238492-100-100.png);
+    background-size: cover;
+  }
+  
+  .msg .five {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.2)),
+      url(https://yt3.ggpht.com/-f54tQOzENGY/AAAAAAAAAAI/AAAAAAAAAAA/iKNian7yya8/s100-c-k-no-rj-c0xffffff/photo.jpg);
+    background-size: cover;
+  }
+  
+  .msg {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 70px;
+  }
+  .text {
+    display: inline-block;
+  }
+  
+  .online_list .name:after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 3px;
+    line-height: 22px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #27c7b2;
+  }
+  
+  .text p {
+    position: absolute;
+    top: 40px;
+    margin-right: 5px;
+    font-size: 13.7px;
+    line-height: 13px;
+    margin-left: 15px;
+    font-weight: 200;
+  }
+  
+  .block {
+    width: 7px;
+    height: 70px;
+    margin-left: -5px;
+    display: inline-block;
+  }
+  
+  .neutral {
+    background: #ceafab;
+  }
+  .name {
+    position: absolute;
+    top: 22px;
+    line-height: 12px;
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 12.2px;
+  }
+
+  .logo1{
+    width: 200px;
+    margin-right: 50px;
+    /* position: relative; */
+    /* right: 50px; */
+  
+  }
+  .logo2{
+    width: 200px;
+    height: 60px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    font-family: 'Jersey 10', sans-serif;
+    /* position: relative;
+    right: 50px; */
+  }
+  .center{
+    padding-top: 15px;
+  }
+  .nav{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav-links{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    background: transparent;
+    padding: 20px 15px;
+    /* border-radius: 12px; */
+    box-shadow: 0 5px 10px  rgba(113,115,119,0.5);
+    justify-content: space-evenly;
+    border: 1px solid #717377;
+    color: #ffffff;
+    /* margin-left: 400px; */
+  }
+  .nav-links li{
+    list-style: none;
+    margin: 0 12px;
+  }
+  .nav-links li a{
+    position: relative;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-decoration: none;
+  }
+  .nav-links li a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #ffffff;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+  }
+  .nav-links li a:hover:before{
+    width: 100%;
+  }
+  .nav-links li.center a:before{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-links li.upward a:before{
+    width: 100%;
+    bottom: -5px;
+    opacity: 0;
+  }
+  .nav-links li.upward a:hover:before{
+    bottom: 0px;
+    opacity: 1;
+  }
+  .nav-links li.forward a:before{
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+  }
+  .nav-links li.forward a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+    </style>
+  </head>
+  <body>
+        <section class="main" >
+            <div class="nav">
+            <ul class="nav-links">
+                <div class="logo1">
+                    <p class="logo2">Proplay</p>
+                </div>
+                <li class="center"><a href="userprofile.html">Profile</a></li>
+                <li class="center blogs"><a href="LinkedIn Style Blog Template.html">Blogs</a></li>
+                <li class="center"><a href="chat1.html">Communities</a></li>
+                <li class="center"><a href="About.html">About</a></li>
+                <li class="center"><a href="contact_us.html">Contact Us</a></li>
+                <li class="center"><a href="head.html">Logout</a></li>
+            </ul>
+            </div>
+        </section>
+        <div class="chat">
+        <header class="header1">
+        <i class="fa fa-user-plus"></i>
+        <span class="headline">CHATS</span>
+        </header>
+        <div class="messages">
+        <div class="msg online_list msg23">
+            <span class="one"></span>
+            <span class="block romantic"></span>
+            <span class="time">11:21</span>
+            <div class="text"><span class="name">Oberyn</span>
+            <p>Hello
+            </p></div>
+            </div>
+            <div class="msg msg23">
+            <span class="two"></span>
+                <span class="block relaxed"></span>
+            <span class="time">10:31</span>
+            <div class="text"><span class="name">Joffrey</span>
+            <p>Bhai Thermo ke notes bhejde 😒</p></div>
+            </div>
+            
+            <div class="msg msg23">
+            <span class="three"></span>
+            <span class="time">Yesterday</span>
+                <span class="block curious"></span>
+                
+            <div class="text"><span class="name">Danerious</span>
+            <p>Aaj raat warden aayega kettle chupadena</p></div>
+            </div>
+            
+                <div class="msg online_list msg23">
+            <span class="four"></span>
+                    <span class="block neutral"></span>
+            <span class="time">Sun</span>
+            <div class="text"><span class="name ">Cersei</span>
+            <p> Wo mess ke samne blue tshirt me ladka kaun tha?</p></div>
+            </div>
+            
+            <div class="msg online_list msg23">
+            <span class="five"></span>
+                    <span class="block curious"></span>
+            <span class="time">Fri</span>
+            <div class="text"><span class="name ">Theon</span>
+            <p>Bhai nahi hai?&#9803; &#9819;</p></div>
+            </div>
+            
+        </div>
+        
+        </div>
+        </section>
+        <section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> Oberyn
+            </div>
+            <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
+
+        <main class="msger-chat">
+            <div class="msg left-msg">
+            <div
+                class="msg-img"
+                style="background-image: url(http://images6.fanpop.com/image/photos/36800000/Banner-and-Icon-oberyn-martell-36867927-75-75.png)"
+            ></div>
+
+            <div class="msg-bubble">
+                <div class="msg-info">
+                <div class="msg-info-name">Oberyn</div>
+                <div class="msg-info-time">12:45</div>
+                </div>
+
+                <div class="msg-text">
+                Hi Bro... Kya chal raha hai 😄
+                </div>
+            </div>
+            </div>
+
+           
+        </main>
+
+        <form class="msger-inputarea">
+            <input
+            type="text"
+            class="msger-input"
+            placeholder="Enter your message..."
+            />
+            <button class="submit">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="42"
+                viewBox="0 0 23 23"
+                style="fill: rgba(0, 0, 0, 1);"
+            >
+                <path
+                d="m21.426 11.095-17-8A1 1 0 0 0 3.03 4.242l1.212 4.849L12 12l-7.758 2.909-1.212 4.849a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81z"
+                ></path>
+            </svg>
+            </button>
+        </form>
+        </section>
+    <script>
+              const msgerForm = get(".msger-inputarea");
+      const msgerInput = get(".msger-input");
+      const msgerChat = get(".msger-chat");
+
+      const BOT_MSGS = [
+        "Hi, how are you?",
+        "Sorry , Par mujhe sirf prateek pasand hai💕😘",
+        "Nahi bhaii😁",
+        "Okayy👌",
+        "Kyu bhaiii?!😒",
+        "Bye bhai",
+        "Tumse matlab?"
+      ];
+
+      // Icons made by Freepik from www.flaticon.com
+      const BOT_IMG = "http://images6.fanpop.com/image/photos/36800000/Banner-and-Icon-oberyn-martell-36867927-75-75.png";
+      const PERSON_IMG = "user.png";
+      const BOT_NAME = "Oberyn";
+      const PERSON_NAME = "YOU";
+
+      msgerForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const msgText = msgerInput.value;
+        if (!msgText) return;
+
+        appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+        msgerInput.value = "";
+
+        botResponse();
+      });
+
+      function appendMessage(name, img, side, text) {
+        //   Simple solution for small apps
+        const msgHTML = `
+          <div class="msg ${side}-msg">
+            <div class="msg-img" style="background-image: url(${img})"></div>
+
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">${name}</div>
+                <div class="msg-info-time">${formatDate(new Date())}</div>
+              </div>
+
+              <div class="msg-text">${text}</div>
+            </div>
+          </div>
+        `;
+
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop += 500;
+      }
+
+      function botResponse() {
+        const r = random(0, BOT_MSGS.length - 1);
+        const msgText = BOT_MSGS[r];
+        const delay = msgText.split(" ").length * 100;
+
+        setTimeout(() => {
+          appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+        }, delay);
+      }
+
+      // Utils
+      function get(selector, root = document) {
+        return root.querySelector(selector);
+      }
+
+      function formatDate(date) {
+        const h = "0" + date.getHours();
+        const m = "0" + date.getMinutes();
+
+        return `${h.slice(-2)}:${m.slice(-2)}`;
+      }
+
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+    </script>
+  </body>
+</html>
